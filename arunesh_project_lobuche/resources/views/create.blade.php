@@ -8,6 +8,10 @@
     <title>Create</title>
 </head>
 <body>
+@if(@errors->any())
+    @foreach($errors->all as $error)
+        {{$error}}
+        @endif
 <form method="post" action="{{action([\App\Http\Controllers\PagesController::class,'store'])}}" enctype="multipart/form-data">
     @csrf
     <label>Name:</label>
